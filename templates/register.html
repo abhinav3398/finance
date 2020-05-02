@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <p>
+        Provide a valid username and enter a strong password which is unique.
+    </p>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+
+    <!-- TODO! -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        var username = document.querySelector('input.username');
+        document.querySelector("form").addEventListener("submit", function(event){
+            var form = document.querySelector('form');
+            form.onsubmit = function() {
+                event.preventDefault();
+                if (!document.querySelector('username').value || !document.querySelector('password1').value || !document.querySelector('password2').value) {
+                    alert('You must provide your username and password; and also confirm it!');
+                    return false;
+                }
+                if (document.querySelector('password2').value !=!document.querySelector('password1').value) {
+                    alert('you must confirm your password');
+                    return false;
+                }
+                $.get('/check', {username: username}, function(data) {
+                    if (data("available")) {
+                        document.querySelector("form").submit();
+                    } else {
+                        alert(document.querySelector('#username').value + ' username already exists or is too short. please choose another username!');
+                        event.preventDefault();
+                    }
+                });
+            };
+        });
+    </script> -->
+    <!-- TODO! -->
+{% endblock %}

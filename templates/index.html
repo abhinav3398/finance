@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/components/tables/ -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ total }}</td>
+            </tr>
+        </tfoot>
+        <tbody>            
+            {% for datas in table %}
+                <tr>
+                    {% for data in datas %}
+                    <td>{{ data }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}            
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{ user_cash }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+        $('table')['DataTable']({'info':![],'ordering':!![],'paging':![],'searching':![]});
+
+    </script>
+
+{% endblock %}
